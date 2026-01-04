@@ -82,7 +82,7 @@ case_data = {
         },
         "X-ray (방사선)": {
             "cost": 40000, 
-            "result": "⚠️ [X-ray] 복부 방사선 상 위 내 이물 음영 확인.",
+            "result": "⚠️ [X-ray] 복부 방사선 상 장 내 이물 음영 확인.",
             "type": "image", 
             "image_path": "images/xray.jpeg",  # 여기에 실제 파일 경로를 넣으세요
             "caption": "Lateral Abdominal Radiograph"
@@ -248,4 +248,5 @@ with st.form("dx_form"):
                 st.session_state['game_over'] = True
             else:
                 st.error(f"오진입니다. '{user_dx}'은(는) 정답이 아닙니다.")
+
                 st.info("힌트: 핵심 키워드(예: 이물, 파보 등)가 포함되어야 합니다.")
