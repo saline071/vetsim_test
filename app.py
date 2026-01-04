@@ -85,7 +85,7 @@ case_data = {
             "result": "⚠️ [X-ray] 복부 방사선 상 장 내 이물 음영 확인.",
             "type": "image", 
             "image_path": "images/xray.jpeg",  # 여기에 실제 파일 경로를 넣으세요
-            "caption": "Lateral Abdominal Radiograph"
+            "caption": "RL abd rad"
         },
         "US (초음파)": {
             "cost": 70000, 
@@ -102,7 +102,7 @@ case_data = {
             "result": "✅ [Parvo] Negative (음성).",
             "type": "text"},
     },
-    "answer_keywords": ["이물", "Foreign", "FB", "fb", "Fb", "Gastric foriegn body"],
+    "answer_keywords": ["이물", "Foreign", "FB", "Gastric foriegn body", "위내이물"],
     "diagnosis_full": "위 내 이물 (Gastric Foreign Body)"
 }
 
@@ -250,3 +250,4 @@ with st.form("dx_form"):
                 st.error(f"오진입니다. '{user_dx}'은(는) 정답이 아닙니다.")
 
                 st.info("힌트: 핵심 키워드(예: 이물, 파보 등)가 포함되어야 합니다.")
+
