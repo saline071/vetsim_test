@@ -72,7 +72,7 @@ st.markdown("""
 case_data = {
     "name": "초코",
     "info": "3살 / 중성화 수컷 / 푸들",
-    "cc": "구토 (5회 이상), 식욕 부진",
+    "cc": "구토 (5회 이상), anorexia",
     "image_path": "images/choco.jpeg",
     "tests": {
         "CBC (혈액검사)": {
@@ -250,4 +250,5 @@ with st.form("dx_form"):
                 st.error(f"오진입니다. '{user_dx}'은(는) 정답이 아닙니다.")
 
                 st.info("힌트: 핵심 키워드(예: 이물, 파보 등)가 포함되어야 합니다.")
+
 
