@@ -6,10 +6,64 @@ import os
 # 1. 페이지 설정
 # ==========================================
 st.set_page_config(
-    page_title="VetSim: 영상 진단 시뮬레이션",
+    page_title="VetSim: 수의 임상 진단 시뮬레이터",
     page_icon="🩺",
     layout="wide"
 )
+
+st.markdown("""
+    <style>
+        /* 1. 툴팁 위치 및 애니메이션 정의 */
+        .sidebar-tooltip {
+            position: fixed;
+            top: 60px;        /* 헤더 바로 아래 */
+            left: 10px;       /* 왼쪽 여백 */
+            z-index: 99999;   /* 맨 위에 표시 */
+            pointer-events: none; /* 이걸 넣어야 툴팁 뒤에 있는 버튼도 클릭 가능함 */
+            animation: bounce 2s infinite;
+        }
+
+        /* 2. 말풍선 디자인 */
+        .tooltip-box {
+            background-color: #ff4b4b; /* 스트림릿 레드 컬러 */
+            color: white;
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: bold;
+            box-shadow: 0px 2px 5px rgba(0,0,0,0.3);
+            position: relative;
+        }
+
+        /* 3. 말풍선 꼬리 (위쪽을 가리킴) */
+        .tooltip-box::after {
+            content: "";
+            position: absolute;
+            bottom: 100%;       /* 말풍선 윗변 */
+            left: 15px;         /* 꼬리 위치 */
+            margin-left: -5px;
+            border-width: 8px;
+            border-style: solid;
+            border-color: transparent transparent #ff4b4b transparent;
+        }
+
+        /* 4. 둥둥 떠다니는 애니메이션 */
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        /* (선택) PC화면(너비 768px 이상)에서는 숨기기 - 모바일에서만 보이게 하려면 주석 해제하세요 */
+        /* @media (min-width: 768px) { .sidebar-tooltip { display: none; } } */
+        
+    </style>
+
+    <div class="sidebar-tooltip">
+        <div class="tooltip-box">
+            ↖ 메뉴를 열어보세요!
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
 
 # ==========================================
 # 2. 환자 데이터 (이미지 경로 포함)
@@ -88,7 +142,7 @@ with st.sidebar:
         st.session_state.clear()
         st.rerun()
 # [메인 화면]
-st.title("🩺 수의 임상 진단 시뮬레이터")
+st.title("🩺 우리 애가 아파요 엉엉")
 st.markdown("### Case 1. 구토하는 강아지")
 st.warning(f"주증상: {case_data['cc']}")
 st.markdown("---")
